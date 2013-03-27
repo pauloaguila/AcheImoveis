@@ -1,0 +1,10 @@
+<resources>
+
+     <!-- Default style ActionBar -->
+     <style name="AguilaActionBarDefaultStyle">
+         <item name="android:background">@drawable/bg_aguila_actionbar</item>
+         <item name="android:layout_height">48dp</item>
+         <item name="android:layout_width">match_parent</item>
+     </style>
+
+</resources>

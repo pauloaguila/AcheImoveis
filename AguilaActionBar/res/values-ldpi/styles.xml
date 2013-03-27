@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Default style EditText -->
+    <style name="AguilaActionEditText">
+        <item name="android:layout_width">190dp</item>
+        <item name="android:layout_height">47dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <!-- Default style TextView -->
+    <style name="AguilaActionTitle">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>        
+
+</resources>
