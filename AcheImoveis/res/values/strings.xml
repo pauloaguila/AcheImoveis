@@ -5,5 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="map_not_ready">Map is not ready yet</string>
+    
+        <!-- Splash Screen Strings -->
+    <string name="splash_dialog_button">OK</string>
+    <string name="splah_dialog_low_memoy_text">Não há espaço em disco suficiente para iniciar o aplicativo.\n\nEspaço disponível: %1$d MB\nEspaço necessário: %2$d MB</string>
+    
 
 </resources>
