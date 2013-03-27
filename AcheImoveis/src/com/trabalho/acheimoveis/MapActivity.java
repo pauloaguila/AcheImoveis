@@ -6,9 +6,11 @@ import android.support.v4.app.FragmentActivity;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import br.org.sidia.aguilaactionbar.AguilaActionBar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,6 +25,8 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
+import com.trabalho.acheimoveis.utils.Constants;
 
 public class MapActivity extends FragmentActivity implements OnMarkerClickListener, OnInfoWindowClickListener, OnMarkerDragListener{
 	
@@ -34,12 +38,28 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
     private Marker mManaus;
     private TextView mTopText;
 
+	private ActionBarListClickListener clickListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.map);
 
         setUpMapIfNeeded();
+    }
+    
+    public void changeActionBar(int op) {
+        if (op == 0) {
+
+            AguilaActionBar.instanceActionBar.setHomeLogo(
+                R.drawable.ic_launcher, clickListener,
+                Constants.HOME_IMG_BUTTON);
+            AguilaActionBar.instanceActionBar.removeAllItemsActionIcon();
+            AguilaActionBar.instanceActionBar.addActionIcon(
+                R.drawable.actionbar_pesquisar, true, View.VISIBLE,
+                clickListener, Constants.SEARCH_IMG_BUTTON);
+        }
     }
     
     private void setUpMapIfNeeded() {

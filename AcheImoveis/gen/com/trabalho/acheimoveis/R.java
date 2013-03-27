@@ -128,105 +128,161 @@ containing a value of this type.
          */
         public static final int zOrderOnTop=0x7f01000d;
     }
+    public static final class color {
+        public static final int black=0x7f040000;
+        /**  Default ActionBar black mobibleTheme 
+         */
+        public static final int blackActionBarDefaultTheme=0x7f040003;
+        /**  Header List Contrast Gray 
+         */
+        public static final int grayHeaderListContrast=0x7f040005;
+        /**  Header List Default Gray 
+         */
+        public static final int grayHeaderListDefault=0x7f040004;
+        /**  Default color red mobibleTheme 
+         */
+        public static final int redDefaultTheme=0x7f040002;
+        public static final int white=0x7f040001;
+        /**  Favorite Contrast Marking Yellow 
+         */
+        public static final int yellowFavoriteMarkingContrast=0x7f040007;
+        /**  Favorite Default Marking Yellow 
+         */
+        public static final int yellowFavoriteMarkingDefault=0x7f040006;
+    }
     public static final class drawable {
-        public static final int arrow=0x7f020000;
-        public static final int badge_nsw=0x7f020001;
-        public static final int badge_qld=0x7f020002;
-        public static final int badge_sa=0x7f020003;
-        public static final int badge_victoria=0x7f020004;
-        public static final int badge_wa=0x7f020005;
-        public static final int custom_info_bubble=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int icon_building=0x7f020008;
+        public static final int actionbar_pesquisar=0x7f020000;
+        public static final int actionbar_pesquisar_ab=0x7f020001;
+        public static final int arrow=0x7f020002;
+        public static final int badge_nsw=0x7f020003;
+        public static final int badge_qld=0x7f020004;
+        public static final int badge_sa=0x7f020005;
+        public static final int badge_victoria=0x7f020006;
+        public static final int badge_wa=0x7f020007;
+        public static final int bg_aguila_actionbar=0x7f020008;
+        public static final int btn_aguila_actionbar=0x7f020009;
+        public static final int btn_aguila_actionbar_bg=0x7f02000a;
+        public static final int btn_aguila_actionbar_bg_pressed=0x7f02000b;
+        public static final int custom_info_bubble=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int icon_building=0x7f02000e;
+        public static final int pesquisar_lupa=0x7f02000f;
     }
     public static final class id {
-        public static final int badge=0x7f040005;
-        public static final int hybrid=0x7f040004;
-        public static final int map=0x7f040008;
-        public static final int menu_settings=0x7f040009;
-        public static final int none=0x7f040000;
-        public static final int normal=0x7f040001;
-        public static final int satellite=0x7f040002;
-        public static final int snippet=0x7f040007;
-        public static final int terrain=0x7f040003;
-        public static final int title=0x7f040006;
+        public static final int actionbar_actionIcons=0x7f070006;
+        public static final int actionbar_home_logo=0x7f070005;
+        public static final int actionbar_item=0x7f070008;
+        public static final int actionbar_search=0x7f070009;
+        public static final int actionbar_title=0x7f070007;
+        public static final int badge=0x7f07000a;
+        public static final int hybrid=0x7f070004;
+        public static final int map=0x7f07000d;
+        public static final int menu_settings=0x7f07000e;
+        public static final int none=0x7f070000;
+        public static final int normal=0x7f070001;
+        public static final int satellite=0x7f070002;
+        public static final int snippet=0x7f07000c;
+        public static final int terrain=0x7f070003;
+        public static final int title=0x7f07000b;
     }
     public static final class layout {
-        public static final int custom_info_window=0x7f030000;
-        public static final int map=0x7f030001;
+        public static final int aguila_actionbar=0x7f030000;
+        public static final int aguila_actionbar_icon=0x7f030001;
+        public static final int aguila_actionbar_search=0x7f030002;
+        public static final int custom_info_window=0x7f030003;
+        public static final int map=0x7f030004;
     }
     public static final class menu {
-        public static final int activity_main=0x7f070000;
+        public static final int activity_main=0x7f080000;
     }
     public static final class string {
-        public static final int app_name=0x7f050011;
+        public static final int app_name=0x7f050000;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
          */
-        public static final int auth_client_availability_notification_title=0x7f05000e;
+        public static final int auth_client_availability_notification_title=0x7f050010;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f05000f;
+        public static final int auth_client_play_services_err_notification_msg=0x7f050011;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f050010;
+        public static final int auth_client_requested_by_msg=0x7f050012;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_button=0x7f050006;
+        public static final int common_google_play_services_enable_button=0x7f050008;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_enable_text=0x7f050005;
+        public static final int common_google_play_services_enable_text=0x7f050007;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_title=0x7f050004;
+        public static final int common_google_play_services_enable_title=0x7f050006;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_button=0x7f050003;
+        public static final int common_google_play_services_install_button=0x7f050005;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_phone=0x7f050001;
+        public static final int common_google_play_services_install_text_phone=0x7f050003;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_tablet=0x7f050002;
+        public static final int common_google_play_services_install_text_tablet=0x7f050004;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_title=0x7f050000;
+        public static final int common_google_play_services_install_title=0x7f050002;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unknown_issue=0x7f050009;
+        public static final int common_google_play_services_unknown_issue=0x7f05000b;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_text=0x7f05000b;
+        public static final int common_google_play_services_unsupported_text=0x7f05000d;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_unsupported_title=0x7f05000a;
+        public static final int common_google_play_services_unsupported_title=0x7f05000c;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_button=0x7f05000c;
+        public static final int common_google_play_services_update_button=0x7f05000e;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_text=0x7f050008;
+        public static final int common_google_play_services_update_text=0x7f05000a;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_title=0x7f050007;
+        public static final int common_google_play_services_update_title=0x7f050009;
         /**  Long form sign-in button text. This is the placeholder text, used if we can't
         find the service-side assets. [CHAR LIMIT=25] 
          */
-        public static final int common_signin_button_text_long=0x7f05000d;
-        public static final int hello_world=0x7f050012;
-        public static final int map_not_ready=0x7f050014;
-        public static final int menu_settings=0x7f050013;
+        public static final int common_signin_button_text_long=0x7f05000f;
+        public static final int hello_world=0x7f050013;
+        public static final int map_not_ready=0x7f050015;
+        public static final int menu_settings=0x7f050014;
+        public static final int searchFor=0x7f050001;
     }
     public static final class style {
+        public static final int ActionBarDefaultStyle=0x7f060005;
+        /**  Default style ActionBar 
+         */
+        public static final int AguilaActionBarDefaultStyle=0x7f060000;
+        /**  Default style EditText 
+ Default style EditText 
+ Default style EditText 
+ Default style EditText 
+ Default style EditText 
+         */
+        public static final int AguilaActionEditText=0x7f060001;
+        /**  Default style TextView 
+ Default style TextView 
+ Default style TextView 
+ Default style TextView 
+ Default style TextView 
+         */
+        public static final int AguilaActionTitle=0x7f060002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -248,11 +304,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f060003;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f060004;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
