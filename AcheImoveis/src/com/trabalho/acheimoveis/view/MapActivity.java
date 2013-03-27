@@ -1,4 +1,4 @@
-package com.trabalho.acheimoveis;
+package com.trabalho.acheimoveis.view;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -25,6 +25,10 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.trabalho.acheimoveis.R;
+import com.trabalho.acheimoveis.R.drawable;
+import com.trabalho.acheimoveis.R.id;
+import com.trabalho.acheimoveis.R.layout;
 import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
 import com.trabalho.acheimoveis.utils.Constants;
 
@@ -55,7 +59,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
             AguilaActionBar.instanceActionBar.setHomeLogo(
                 R.drawable.ic_launcher, clickListener,
                 Constants.HOME_IMG_BUTTON);
-            AguilaActionBar.instanceActionBar.removeAllItemsActionIcon();
+            //AguilaActionBar.instanceActionBar.removeAllItemsActionIcon();
             AguilaActionBar.instanceActionBar.addActionIcon(
                 R.drawable.actionbar_pesquisar, true, View.VISIBLE,
                 clickListener, Constants.SEARCH_IMG_BUTTON);

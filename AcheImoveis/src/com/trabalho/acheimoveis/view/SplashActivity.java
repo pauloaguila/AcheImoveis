@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.trabalho.acheimoveis.MapActivity;
 import com.trabalho.acheimoveis.R;
 import com.trabalho.acheimoveis.controller.ApplicationControllerWrapper;
 import com.trabalho.acheimoveis.controller.SplashController;
