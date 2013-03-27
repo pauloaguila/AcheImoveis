@@ -18,6 +18,7 @@
     </style>
 
     <style name="ActionBarDefaultStyle">
+        <item name="android:background">@drawable/bg_actionbar</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_width">match_parent</item>
     </style>

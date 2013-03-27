@@ -26,9 +26,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.trabalho.acheimoveis.R;
-import com.trabalho.acheimoveis.R.drawable;
-import com.trabalho.acheimoveis.R.id;
-import com.trabalho.acheimoveis.R.layout;
 import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
 import com.trabalho.acheimoveis.utils.Constants;
 
@@ -49,6 +46,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.map);
+        changeActionBar(0);
 
         setUpMapIfNeeded();
     }
