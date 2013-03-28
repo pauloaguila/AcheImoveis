@@ -1,5 +1,6 @@
-package br.org.sidia.aguilaactionbar;
+package com.trabalho.acheimoveis.actionbar;
 
+import br.org.sidia.aguilaactionbar.R;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.TextWatcher;

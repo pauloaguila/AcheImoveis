@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
-import br.org.sidia.aguilaactionbar.AguilaActionBar;
 
 import com.trabalho.acheimoveis.utils.Constants;
 

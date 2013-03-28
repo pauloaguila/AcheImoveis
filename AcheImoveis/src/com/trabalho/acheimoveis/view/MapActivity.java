@@ -10,7 +10,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import br.org.sidia.aguilaactionbar.AguilaActionBar;
+import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
