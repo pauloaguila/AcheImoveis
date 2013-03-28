@@ -11,56 +11,58 @@ import com.trabalho.acheimoveis.controller.ApplicationControllerWrapper;
 
 public class ToastHandler {
 
-    private final Activity activity;
-    private final int id;
-    private final Typeface fontStyle;
+	private final Activity activity;
+	private final int id;
+	private final Typeface fontStyle;
 
-    // Variable singleton
-    private static ApplicationControllerWrapper application;
+	// Variable singleton
+	private static ApplicationControllerWrapper application;
 
-    public ToastHandler(Activity activity, int toastId) {
+	public ToastHandler(Activity activity, int toastId) {
 
-        this.activity = activity;
+		this.activity = activity;
 
-        // Sets the Toast windows parameters as id and duration
-        this.id = toastId;
-        this.fontStyle = Typeface.createFromAsset(activity.getAssets(), "fonts/robotoregular.ttf");
+		// Sets the Toast windows parameters as id and duration
+		this.id = toastId;
+		this.fontStyle = Typeface.createFromAsset(activity.getAssets(),
+				"fonts/robotoregular.ttf");
 
-        // get the application in activity
-        this.application = (ApplicationControllerWrapper) this.activity.getApplication();
+		// get the application in activity
+		this.application = (ApplicationControllerWrapper) this.activity
+				.getApplication();
 
-        showToast();
-    }
+		showToast();
+	}
 
-    public void showToast() {
+	public void showToast() {
 
-        Toast toast = new Toast(activity);
+		Toast toast = new Toast(activity);
 
-        switch(id) {
+		switch (id) {
 
-        case 1:
+		case 1:
 
-            // Show Toast
+			// Show Toast
 
-            TextView textviewClipboard = new TextView(activity);
-            textviewClipboard.setText("aaaa");//activity.getString(R.string.contextual_copy_action_result_text));
-            textviewClipboard.setTypeface(fontStyle);
-            textviewClipboard.setPadding(10, 10, 10, 10);
-            textviewClipboard.setGravity(Gravity.CENTER);
+			TextView textviewClipboard = new TextView(activity);
+			textviewClipboard.setText("aaaa");// activity.getString(R.string.contextual_copy_action_result_text));
+			textviewClipboard.setTypeface(fontStyle);
+			textviewClipboard.setPadding(10, 10, 10, 10);
+			textviewClipboard.setGravity(Gravity.CENTER);
 
-            //textviewClipboard.setBackgroundDrawable(activity.getResources().getDrawable(R.color.blackActionBarDefaultTheme));
-            textviewClipboard.setTextColor(Color.WHITE);
+			// textviewClipboard.setBackgroundDrawable(activity.getResources().getDrawable(R.color.blackActionBarDefaultTheme));
+			textviewClipboard.setTextColor(Color.WHITE);
 
-            toast.setView(textviewClipboard);
-            toast.setDuration(Toast.LENGTH_SHORT);
-            toast.show();
-            break;
+			toast.setView(textviewClipboard);
+			toast.setDuration(Toast.LENGTH_SHORT);
+			toast.show();
+			break;
 
-        default:
-            break;
+		default:
+			break;
 
-        }
+		}
 
-    }
+	}
 
 }

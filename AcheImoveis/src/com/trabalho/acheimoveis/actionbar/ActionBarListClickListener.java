@@ -52,8 +52,6 @@ public class ActionBarListClickListener implements OnClickListener {
 		AguilaActionBar.instanceActionBar.setEditText("");
 	}
 
-
-
 	@Override
 	public void onClick(View v) {
 		int viewTag = Integer.parseInt("" + v.getTag());
