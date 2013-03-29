@@ -98,31 +98,9 @@ public class ActionBarListClickListener implements OnClickListener {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH
                     && AguilaActionBar.instanceActionBar
                         .getEditTextContent().length() != 0) {
-                	String address = AguilaActionBar.instanceActionBar.getEditTextContent() + " manaus";
+                	String address = mountAddress(AguilaActionBar.instanceActionBar.getEditTextContent() + ", manaus");
+                	new GeocoderTask().execute(address);
                 	
-                	JSONObject ret = getLocationInfo(address); 
-                	JSONObject results;
-                	JSONObject geometry;
-                	JSONObject location;
-                	LatLng latLng;
-                	try {
-                		results = ret.getJSONArray("results").getJSONObject(0);
-                		geometry = results.getJSONObject("geometry");
-                		location = geometry.getJSONObject("location");
-                		latLng = new LatLng(location.getLong("lat"), location.getLong("lng"));
-                	    Log.d("test", "LatLng:" + location.getLong("lat") + location.getLong("lng"));
-                	    
-                	    CameraPosition cameraPosition = 
-        					    new CameraPosition.Builder()
-        					      .target(latLng)   
-        					      .zoom(15)     
-        					      .build();
-
-        					map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                	} catch (JSONException e1) {
-                	    e1.printStackTrace();
-
-                	}                	
                     clearshowKeyboard(0);
                     return true;
                 }
@@ -132,82 +110,76 @@ public class ActionBarListClickListener implements OnClickListener {
 
 	}
 	
-	public JSONObject getLocationInfo(String location) {		
-        HttpGet httpGet = new HttpGet("http://maps.google.com/maps/api/geocode/json?address="+location+"&sensor=true");
-        HttpClient client = new DefaultHttpClient();
-        HttpResponse response;
-        StringBuilder stringBuilder = new StringBuilder();
-
-        try {
-            response = client.execute(httpGet);
-            HttpEntity entity = response.getEntity();
-            InputStream stream = entity.getContent();
-            int b;
-            while ((b = stream.read()) != -1) {
-                stringBuilder.append((char) b);
-            }
-        } catch (ClientProtocolException e) {
-            } catch (IOException e) {
-        }
-
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject = new JSONObject(stringBuilder.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObject;
-    }
-/*	
-	public class GeocoderTask extends AsyncTask<String, Void, Address> {
+	public String mountAddress(String address){
+		String addr = address.replace(" ", "+");
+		return addr;
+	}
+	
+	public class GeocoderTask extends AsyncTask<String, Void, LatLng>{
 
 		@Override
-		protected Address doInBackground(String... locationName) {
-			Geocoder geocoder = new Geocoder(context);
-			List<Address> address = null;
-			Address addr = null;
-			
-			try {
-				address = geocoder.getFromLocationName(locationName[0], 1);
-			    while (address.size()==0) {
-			    	address = geocoder.getFromLocationName(locationName[0], 1);
-			    }
-			    if (address.size()>0) {
-			    	addr = address.get(0);
-			    }
-			} catch (Exception e) {
-			    System.out.print(e.getMessage());
-			}
-			return addr;
-		}
+		protected LatLng doInBackground(String... address) {
+			JSONObject ret = getLocationInfo(address[0]); 
+        	JSONObject results;
+        	JSONObject geometry;
+        	JSONObject location;
+        	LatLng latlng = null;
+        	try {
+        		results = ret.getJSONArray("results").getJSONObject(0);
+        		geometry = results.getJSONObject("geometry");
+        		location = geometry.getJSONObject("location");
+        		latlng = new LatLng(location.getLong("lat"), location.getLong("lng"));
+        	    Log.d("test", "LatLng:" + location.getLong("lat") + location.getLong("lng"));
+        	    
+        	} catch (JSONException e1) {
+        	    e1.printStackTrace();
 
+        	}                	
+			return latlng;
+		}
 		
 		@Override
-		protected void onPostExecute(Address address) {
-
-			if (address == null) {
-				Toast.makeText(context, "No Location found",
-						Toast.LENGTH_SHORT).show();
-			}
-
-			// Clears all the existing markers on the map
-			//map.clear();
-
-
-				// Creating an instance of GeoPoint, to display in Google Map
-				LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-
-		        CameraPosition cameraPosition = 
+		protected void onPostExecute(LatLng latlng) {
+			if(latlng != null){
+	    	    CameraPosition cameraPosition = 
 					    new CameraPosition.Builder()
-					      .target(latLng)   
+					      .target(latlng)   
 					      .zoom(15)     
 					      .build();
 
-				// Locate the first location
 					map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+			}
 		}
+		
+		public JSONObject getLocationInfo(String location) {		
+	        HttpGet httpGet = new HttpGet("http://maps.googleapis.com/maps/api/geocode/json?address="+location+"&sensor=true");
+	        HttpClient client = new DefaultHttpClient();
+	        HttpResponse response;
+	        StringBuilder stringBuilder = new StringBuilder();
+
+	        try {
+	            response = client.execute(httpGet);
+	            HttpEntity entity = response.getEntity();
+	            InputStream stream = entity.getContent();
+	            int b;
+	            while ((b = stream.read()) != -1) {
+	                stringBuilder.append((char) b);
+	            }
+	        } catch (ClientProtocolException e) {
+	            } catch (IOException e) {
+	        }
+
+	        JSONObject jsonObject = new JSONObject();
+	        try {
+	            jsonObject = new JSONObject(stringBuilder.toString());
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
+	        return jsonObject;
+	    }
+		
 	}
-*/
+	
 	public void closeImgButton() {
 		AguilaActionBar.instanceActionBar.setEditText("");
 	}
