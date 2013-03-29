@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Definitions ActionBar -->
+    <dimen name="width_actionbar_search">180dp</dimen>
+    <dimen name="height_actionbar_search">45dp</dimen>
+    <dimen name="width_actionbar_up_icon">2dp</dimen>
+    <dimen name="height_actionbar">48dp</dimen>
+
+</resources>

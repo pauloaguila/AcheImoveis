@@ -46,6 +46,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.map);
+        clickListener = new ActionBarListClickListener(this, getBaseContext(), mMap);
         changeActionBar(0);
 
         setUpMapIfNeeded();
@@ -57,10 +58,10 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
             AguilaActionBar.instanceActionBar.setHomeLogo(
                 R.drawable.ic_launcher, clickListener,
                 Constants.HOME_IMG_BUTTON);
-            //AguilaActionBar.instanceActionBar.removeAllItemsActionIcon();
             AguilaActionBar.instanceActionBar.addActionIcon(
                 R.drawable.actionbar_pesquisar, true, View.VISIBLE,
                 clickListener, Constants.SEARCH_IMG_BUTTON);
+            
         }
     }
     

@@ -3,7 +3,6 @@
    android:id="@+id/actionbar_search"
    style="@style/AguilaActionEditText"   
    android:textColor="@color/white"
-   android:drawableLeft="@drawable/pesquisar_lupa"
    android:inputType="textCapWords"
    android:imeOptions="actionSearch">
 

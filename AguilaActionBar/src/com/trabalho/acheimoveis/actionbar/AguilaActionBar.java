@@ -86,11 +86,11 @@ public class AguilaActionBar extends RelativeLayout {
         return imgButton;
     }
 
-    public void addActionEdiText(TextWatcher watcher, int width, int height) {
+    public void addActionEdiText(/*TextWatcher watcher, */int width, int height) {
         View view = mInflater.inflate(R.layout.aguila_actionbar_search, mActionIconContainer, false);
         EditText searchField = (EditText) view.findViewById(R.id.actionbar_search);
         // searchField.setLayoutParams(new LayoutParams(width, height));
-        searchField.addTextChangedListener(watcher);
+        //searchField.addTextChangedListener(watcher);
         searchField.requestFocus();
         searchField.setHint(getContext().getString(R.string.searchFor));
         //searchField.setTypeface(fontStyle);

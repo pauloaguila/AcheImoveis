@@ -2,6 +2,6 @@
 <resources>
 
     <string name="app_name">AguilaActionBar</string>
-    <string name="searchFor">Procurar por</string>
+    <string name="searchFor">Digite a localidade</string>
 
 </resources>
