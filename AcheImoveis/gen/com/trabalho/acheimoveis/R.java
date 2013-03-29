@@ -150,25 +150,35 @@ containing a value of this type.
          */
         public static final int yellowFavoriteMarkingDefault=0x7f050006;
     }
+    public static final class dimen {
+        public static final int height_actionbar=0x7f090003;
+        public static final int height_actionbar_search=0x7f090001;
+        /**  Definitions ActionBar 
+         */
+        public static final int width_actionbar_search=0x7f090000;
+        public static final int width_actionbar_up_icon=0x7f090002;
+    }
     public static final class drawable {
         public static final int actionbar_pesquisar=0x7f020000;
         public static final int actionbar_pesquisar_ab=0x7f020001;
-        public static final int arrow=0x7f020002;
-        public static final int badge_nsw=0x7f020003;
-        public static final int badge_qld=0x7f020004;
-        public static final int badge_sa=0x7f020005;
-        public static final int badge_victoria=0x7f020006;
-        public static final int badge_wa=0x7f020007;
-        public static final int bg_actionbar=0x7f020008;
-        public static final int bg_aguila_actionbar=0x7f020009;
-        public static final int btn_aguila_actionbar=0x7f02000a;
-        public static final int btn_aguila_actionbar_bg=0x7f02000b;
-        public static final int btn_aguila_actionbar_bg_pressed=0x7f02000c;
-        public static final int custom_info_bubble=0x7f02000d;
-        public static final int ic_launcher=0x7f02000e;
-        public static final int icon_building=0x7f02000f;
-        public static final int mallandro=0x7f020010;
-        public static final int pesquisar_lupa=0x7f020011;
+        public static final int actionbar_up_icon=0x7f020002;
+        public static final int arrow=0x7f020003;
+        public static final int badge_nsw=0x7f020004;
+        public static final int badge_qld=0x7f020005;
+        public static final int badge_sa=0x7f020006;
+        public static final int badge_victoria=0x7f020007;
+        public static final int badge_wa=0x7f020008;
+        public static final int bg_actionbar=0x7f020009;
+        public static final int bg_aguila_actionbar=0x7f02000a;
+        public static final int btn_aguila_actionbar=0x7f02000b;
+        public static final int btn_aguila_actionbar_bg=0x7f02000c;
+        public static final int btn_aguila_actionbar_bg_pressed=0x7f02000d;
+        public static final int custom_info_bubble=0x7f02000e;
+        public static final int ic_launcher=0x7f02000f;
+        public static final int icon_building=0x7f020010;
+        public static final int mallandro=0x7f020011;
+        public static final int pesquisar_lupa=0x7f020012;
+        public static final int pesquisar_x=0x7f020013;
     }
     public static final class id {
         public static final int actionBar=0x7f08000d;
@@ -198,7 +208,7 @@ containing a value of this type.
         public static final int splash=0x7f030005;
     }
     public static final class menu {
-        public static final int activity_main=0x7f090000;
+        public static final int activity_main=0x7f0a0000;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -301,17 +311,6 @@ containing a value of this type.
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f070003;
         /**  Application theme. 
