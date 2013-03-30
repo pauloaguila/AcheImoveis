@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.trabalho.acheimoveis.actionbar.AguilaActionBar.FunctionsActionBar;
 import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
-import com.trabalho.acheimoveis.utils.Constants;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
 
 public class ActionBarListClickListener implements ActionsBunttosActionBar {
@@ -116,6 +115,7 @@ public class ActionBarListClickListener implements ActionsBunttosActionBar {
 	@Override
 	public void cleanSearchClicked() {
 		AguilaActionBar.instanceActionBar.setEditText("");
+
 		
 	}
 }

@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import br.org.sidia.aguilaactionbar.R;
 
+import com.trabalho.acheimoveis.actionbar.AguilaActionBar.FunctionsActionBar;
 import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
 
 public class InitialWithSearchStateActionBar extends StateActionBar{
@@ -18,11 +19,13 @@ public class InitialWithSearchStateActionBar extends StateActionBar{
 
 	@Override
 	public void changeActionBar() {
+		
+		
 
-		AguilaActionBar.instanceActionBar.setHomeLogo(
+		AguilaActionBar.instanceActionBar.new FunctionsActionBar().setHomeLogo(
 	              R.drawable.ic_launcher, null);
 			
-	          AguilaActionBar.instanceActionBar.addActionIcon(
+		AguilaActionBar.instanceActionBar.new FunctionsActionBar().addActionIcon(
 	              R.drawable.actionbar_pesquisar, true, View.VISIBLE,
 	              onClickListener,0);		
 		

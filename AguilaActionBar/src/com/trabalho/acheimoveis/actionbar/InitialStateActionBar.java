@@ -8,7 +8,7 @@ public class InitialStateActionBar extends StateActionBar{
 	@Override
 	public void changeActionBar() {
 
-		AguilaActionBar.instanceActionBar.setHomeLogo(
+		AguilaActionBar.instanceActionBar.new FunctionsActionBar().setHomeLogo(
               R.drawable.ic_launcher, null);
 	}
 
