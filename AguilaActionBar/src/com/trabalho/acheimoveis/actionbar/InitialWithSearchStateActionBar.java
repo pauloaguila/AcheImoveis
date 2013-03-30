@@ -27,7 +27,7 @@ public class InitialWithSearchStateActionBar extends StateActionBar{
 			
 		AguilaActionBar.instanceActionBar.new FunctionsActionBar().addActionIcon(
 	              R.drawable.actionbar_pesquisar, true, View.VISIBLE,
-	              onClickListener,0);		
+	              onClickListener);		
 		
 	}
 	

@@ -28,9 +28,7 @@ public class MakeSearchStateActionBar extends StateActionBar{
         
 		AguilaActionBar.instanceActionBar.new FunctionsActionBar().addActionIcon(
 	              R.drawable.pesquisar_x, true, View.VISIBLE,
-	              onClickListenerCleanSearch,0);        
-
-		
+	              onClickListenerCleanSearch); 
 		
 	}
 	

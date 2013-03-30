@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.trabalho.acheimoveis.actionbar.AguilaActionBar.FunctionsActionBar;
 import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
 

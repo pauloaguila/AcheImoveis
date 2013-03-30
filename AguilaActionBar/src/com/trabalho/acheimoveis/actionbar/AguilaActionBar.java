@@ -100,11 +100,9 @@ public class AguilaActionBar extends RelativeLayout {
 	        }
 	    }
 
-	   View addActionIcon(int iconResourceId, boolean enabled, int visibility, OnClickListener onClickListener,
-	        int tag) {
+	   View addActionIcon(int iconResourceId, boolean enabled, int visibility, OnClickListener onClickListener) {
 	        View view = mInflater.inflate(R.layout.aguila_actionbar_icon, mActionIconContainer, false);
 	        ImageButton imgButton = (ImageButton) view.findViewById(R.id.actionbar_item);
-	        imgButton.setTag(tag);
 	        imgButton.setEnabled(enabled);
 	        imgButton.setVisibility(visibility);
 	        imgButton.setImageResource(iconResourceId);
