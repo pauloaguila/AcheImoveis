@@ -10,7 +10,6 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,7 +26,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.trabalho.acheimoveis.R;
 import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
-import com.trabalho.acheimoveis.utils.Constants;
+import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
+import com.trabalho.acheimoveis.actionbar.InitialWithSearchStateActionBar;
+import com.trabalho.acheimoveis.actionbar.StateActionBar;
+
 
 public class MapActivity extends FragmentActivity implements OnMarkerClickListener, OnInfoWindowClickListener, OnMarkerDragListener{
 	
@@ -52,13 +54,18 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
     
     public void changeActionBar(int op) {
         if (op == 0) {
+        	
+        	StateActionBar state = new InitialWithSearchStateActionBar(clickListener);
+        	AguilaActionBar.instanceActionBar.setStateActionBar(state);
+        	
 
-            AguilaActionBar.instanceActionBar.setHomeLogo(
-                R.drawable.ic_launcher, clickListener,
-                Constants.HOME_IMG_BUTTON);
-            AguilaActionBar.instanceActionBar.addActionIcon(
-                R.drawable.actionbar_pesquisar, true, View.VISIBLE,
-                clickListener, Constants.SEARCH_IMG_BUTTON);
+
+//            AguilaActionBar.instanceActionBar.setHomeLogo(
+//                R.drawable.ic_launcher, clickListener,
+//                Constants.HOME_IMG_BUTTON);
+//            AguilaActionBar.instanceActionBar.addActionIcon(
+//                R.drawable.actionbar_pesquisar, true, View.VISIBLE,
+//                clickListener, Constants.SEARCH_IMG_BUTTON);
             
         }
     }

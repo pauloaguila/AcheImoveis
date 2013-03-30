@@ -1,9 +1,6 @@
 package com.trabalho.acheimoveis.actionbar;
 
-import br.org.sidia.aguilaactionbar.R;
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import br.org.sidia.aguilaactionbar.R;
+
 
 public class AguilaActionBar extends RelativeLayout {
 
@@ -43,36 +42,40 @@ public class AguilaActionBar extends RelativeLayout {
         instanceActionBar = this;
     }
 
-    public void setHomeLogo(int resId, int tag) {
-        setHomeLogo(resId, null, tag);
+    public void setStateActionBar(StateActionBar state){
+    	state.changeActionBar();
+    }
+    
+    protected void setHomeLogo(int resId) {
+        setHomeLogo(resId, null);
     }
 
-    public void setHomeLogo(int resId, OnClickListener onClickListener, int tag) {
+    protected void setHomeLogo(int resId, OnClickListener onClickListener) {
         mLogoView.setImageResource(resId);
         mLogoView.setVisibility(View.VISIBLE);
-        mLogoView.setTag(tag);
+       // mLogoView.setTag(tag);
         mLogoView.setOnClickListener(onClickListener);
         if (onClickListener != null) {
         }
     }
 
-    public void setTitle(CharSequence title) {
+    protected void setTitle(CharSequence title) {
         mTitleView.setText(title);
         //mTitleView.setTypeface(fontStyle);
         setSizeTitle(18);
     }
 
-    public void setTitle(int resid) {
+    protected void setTitle(int resid) {
         mTitleView.setText(resid);
         //mTitleView.setTypeface(fontStyle);
         setSizeTitle(18);
     }
 
-    public void setSizeTitle(int size) {
+    protected void setSizeTitle(int size) {
         mTitleView.setTextSize(size);
     }
 
-    public View addActionIcon(int iconResourceId, boolean enabled, int visibility, OnClickListener onClickListener,
+    protected View addActionIcon(int iconResourceId, boolean enabled, int visibility, OnClickListener onClickListener,
         int tag) {
         View view = mInflater.inflate(R.layout.aguila_actionbar_icon, mActionIconContainer, false);
         ImageButton imgButton = (ImageButton) view.findViewById(R.id.actionbar_item);
@@ -86,7 +89,7 @@ public class AguilaActionBar extends RelativeLayout {
         return imgButton;
     }
 
-    public void addActionEdiText(/*TextWatcher watcher, */int width, int height) {
+    protected void addActionEdiText(/*TextWatcher watcher, */int width, int height) {
         View view = mInflater.inflate(R.layout.aguila_actionbar_search, mActionIconContainer, false);
         EditText searchField = (EditText) view.findViewById(R.id.actionbar_search);
         // searchField.setLayoutParams(new LayoutParams(width, height));
@@ -97,7 +100,7 @@ public class AguilaActionBar extends RelativeLayout {
         mActionIconContainer.addView(view, mActionIconContainer.getChildCount());
     }
 
-    public boolean removeAllItemsActionIcon() {
+    protected boolean removeAllItemsActionIcon() {
         int count = mActionIconContainer.getChildCount();
         for(int i = 0; i < count; i++) {
             mActionIconContainer.removeViewAt(0);
@@ -105,7 +108,7 @@ public class AguilaActionBar extends RelativeLayout {
         return false;
     }
 
-    public int getIndexActionIconByTag(int tag) {
+    protected int getIndexActionIconByTag(int tag) {
         int count = mActionIconContainer.getChildCount();
         int index = 0;
         for(int i = 0; i < count; i++) {
@@ -115,7 +118,7 @@ public class AguilaActionBar extends RelativeLayout {
         return index;
     }
 
-    public ImageButton getActionIconByTag(Integer tag) {
+    protected ImageButton getActionIconByTag(Integer tag) {
         int count = mActionIconContainer.getChildCount();
         ImageButton retorno = null;
         ImageButton view = null;
@@ -131,7 +134,7 @@ public class AguilaActionBar extends RelativeLayout {
         return retorno;
     }
 
-    public Boolean verifyIconByTag(Integer tag) {
+    protected Boolean verifyIconByTag(Integer tag) {
         int count = mActionIconContainer.getChildCount();
         Boolean retorno = false;
         ImageButton view = null;
@@ -147,7 +150,7 @@ public class AguilaActionBar extends RelativeLayout {
         return retorno;
     }
 
-    public EditText getEditText() {
+    protected EditText getEditText() {
         int count = mActionIconContainer.getChildCount();
         EditText retorno = null;
         for(int i = 0; i < count; i++) {
@@ -158,7 +161,7 @@ public class AguilaActionBar extends RelativeLayout {
         return retorno;
     }
 
-    public boolean removeActionIconAt(int index) {
+    protected boolean removeActionIconAt(int index) {
         int count = mActionIconContainer.getChildCount();
         if (count > 0 && index >= 0 && index < count) {
             mActionIconContainer.removeViewAt(index);
@@ -167,17 +170,17 @@ public class AguilaActionBar extends RelativeLayout {
         return false;
     }
 
-    public void removeActionIconByTag(int tag) {
+    protected void removeActionIconByTag(int tag) {
         int index = getIndexActionIconByTag(tag);
         removeActionIconAt(index);
     }
 
-    public void setEditText(String texto) {
+    protected void setEditText(String texto) {
         EditText editText = getEditText();
         editText.setText(texto);
     }
 
-    public void setEditTextLayout(int w, int h) {
+    protected void setEditTextLayout(int w, int h) {
         EditText editText = getEditText();
         // LayoutParams layout = new LayoutParams(w, h);
         // layout.setMargins(50, 10, 0, 0);
@@ -188,12 +191,12 @@ public class AguilaActionBar extends RelativeLayout {
         // editText.setLayoutParams(new LayoutParams(w, h));
     }
 
-    public String getEditTextContent() {
+    protected String getEditTextContent() {
         EditText editText = getEditText();
         return editText.getText().toString().trim();
     }
 
-    public void setActionIcon(int tag, int iconResourceId, int newtag, boolean enabled, int visibility) {
+    protected void setActionIcon(int tag, int iconResourceId, int newtag, boolean enabled, int visibility) {
         try {
             ImageButton imgButton = getActionIconByTag(tag);
             imgButton.setImageResource(iconResourceId);
@@ -206,7 +209,7 @@ public class AguilaActionBar extends RelativeLayout {
 
     }
 
-    public String getTitle() {
+    protected String getTitle() {
         return mTitleView.getText().toString();
     }
 }

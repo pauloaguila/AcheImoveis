@@ -11,11 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.trabalho.acheimoveis.R;
+import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
 import com.trabalho.acheimoveis.utils.Constants;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
 
-public class ActionBarListClickListener implements OnClickListener {
+public class ActionBarListClickListener implements ActionsBunttosActionBar {
 
 	// private final TextChangeListener keyListener;
 	private final Activity activity;
@@ -57,16 +57,21 @@ public class ActionBarListClickListener implements OnClickListener {
 		}
 	}
 
-	public void searchImgButton() {
-		AguilaActionBar.instanceActionBar.removeAllItemsActionIcon();
-        AguilaActionBar.instanceActionBar.setHomeLogo(
-            R.drawable.actionbar_up_icon, this,
-            Constants.HOME_IMG_BUTTON);
-        AguilaActionBar.instanceActionBar.addActionEdiText(R.dimen.width_actionbar_search,
-            R.dimen.height_actionbar_search);
-        AguilaActionBar.instanceActionBar.addActionIcon(
-            R.drawable.pesquisar_x, true, View.VISIBLE,
-            this, Constants.CLOSE_IMG_BUTTON);
+	
+	public String mountAddress(String address){
+		String addr = address.replace(" ", "+");
+		return addr;
+	}
+	
+	
+
+	@Override
+	public void searchClicked() {
+		
+    	StateActionBar state = new MakeSearchStateActionBar(this);
+    	AguilaActionBar.instanceActionBar.setStateActionBar(state);
+		
+
 		clearshowKeyboard(1);
 		
 		EditText editText = AguilaActionBar.instanceActionBar.getEditText();
@@ -92,34 +97,25 @@ public class ActionBarListClickListener implements OnClickListener {
                 return true;
             }
         });
-
-	}
-	
-	public String mountAddress(String address){
-		String addr = address.replace(" ", "+");
-		return addr;
-	}
-	
-	
-	public void closeImgButton() {
-		AguilaActionBar.instanceActionBar.setEditText("");
+		
+		
 	}
 
 	@Override
-	public void onClick(View v) {
-		int viewTag = Integer.parseInt("" + v.getTag());
+	public void homeLogoClicked() {
+		// TODO Auto-generated method stub
+		
+	}
 
-		switch (viewTag) {
-		case Constants.SEARCH_IMG_BUTTON:
-			searchImgButton();
-			break;
-		case Constants.CLOSE_IMG_BUTTON:
-			closeImgButton();
-			break;
+	@Override
+	public void makeSearchClicked() {
+		// TODO Auto-generated method stub
+		
+	}
 
-		default:
-			break;
-		}
-
+	@Override
+	public void cleanSearchClicked() {
+		AguilaActionBar.instanceActionBar.setEditText("");
+		
 	}
 }
