@@ -46,8 +46,6 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.map);
-        clickListener = new ActionBarListClickListener(this, getBaseContext(), mMap);
-        changeActionBar(0);
 
         setUpMapIfNeeded();
     }
@@ -103,6 +101,9 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 			      .build();
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));    
 
+        clickListener = new ActionBarListClickListener(this, getBaseContext(), mMap);
+        changeActionBar(0);
+        
     }
     
     private void setupUiSettings(){
