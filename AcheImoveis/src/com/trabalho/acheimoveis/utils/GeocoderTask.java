@@ -40,7 +40,7 @@ public class GeocoderTask extends AsyncTask<String, Void, LatLng>{
     		results = ret.getJSONArray("results").getJSONObject(0);
     		geometry = results.getJSONObject("geometry");
     		location = geometry.getJSONObject("location");
-    		latlng = new LatLng(location.getLong("lat"), location.getLong("lng"));
+    		latlng = new LatLng(location.getDouble("lat"), location.getDouble("lng"));
     	   // Log.d("test", "LatLng:" + location.getLong("lat") + location.getLong("lng"));
     	    
     	} catch (JSONException e1) {
