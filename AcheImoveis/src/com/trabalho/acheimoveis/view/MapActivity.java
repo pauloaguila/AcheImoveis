@@ -218,5 +218,18 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 			return null;
 		}
     }
+    
+    @Override
+    public void onBackPressed() {
+    	
+    	if(AguilaActionBar.instanceActionBar.getStateActionBar() instanceof InitialWithSearchStateActionBar){
+    		super.onBackPressed();
+    		
+    	}else{
+    		changeActionBar(0);
+    	}
+    	
+    	
+    }
 
 }

@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import br.org.sidia.aguilaactionbar.R;
 
-import com.trabalho.acheimoveis.actionbar.AguilaActionBar.FunctionsActionBar;
 import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
 
 

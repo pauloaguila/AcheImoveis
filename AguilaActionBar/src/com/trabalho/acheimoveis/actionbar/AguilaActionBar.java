@@ -20,7 +20,9 @@ public class AguilaActionBar extends RelativeLayout {
 
     private final TextView mTitleView;
     
-       private final LinearLayout mActionIconContainer;
+    private StateActionBar state;
+    
+    private final LinearLayout mActionIconContainer;
     public static AguilaActionBar instanceActionBar;
 
     //private final Typeface fontStyle;
@@ -43,7 +45,14 @@ public class AguilaActionBar extends RelativeLayout {
     }
 
     public void setStateActionBar(StateActionBar state){
-    	state.changeActionBar();
+    	
+    	this.state = state;
+    	this.state.changeActionBar();
+    }
+    
+    public StateActionBar getStateActionBar(){
+    	
+    	return this.state;
     }
     
     public String getEditTextContent() {
