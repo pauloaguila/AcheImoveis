@@ -1,6 +1,6 @@
 package com.trabalho.acheimoveis.interfaces;
 
-public interface ActionsBunttosActionBar {
+public interface ActionsButtonsActionBar {
 	
 	public void searchClicked();
 	

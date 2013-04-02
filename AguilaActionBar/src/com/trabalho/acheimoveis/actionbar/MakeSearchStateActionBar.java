@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import br.org.sidia.aguilaactionbar.R;
 
-import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
+import com.trabalho.acheimoveis.interfaces.ActionsButtonsActionBar;
 
 
 public class MakeSearchStateActionBar extends StateActionBar{
 
-	private ActionsBunttosActionBar actions;
+	private ActionsButtonsActionBar actions;
 
-	public MakeSearchStateActionBar(ActionsBunttosActionBar action){
+	public MakeSearchStateActionBar(ActionsButtonsActionBar action){
 		
 		actions = action;
 	}
