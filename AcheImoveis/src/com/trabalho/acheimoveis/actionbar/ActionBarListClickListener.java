@@ -112,6 +112,12 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 	}
 
 	@Override
+	public void goMapClicked() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
 	public void cleanSearchClicked() {
 		AguilaActionBar.instanceActionBar.setEditText("");
 

@@ -9,6 +9,8 @@ public interface ActionsButtonsActionBar {
 	public void cleanSearchClicked();
 	
 	public void makeSearchClicked();
+	
+	public void goMapClicked();
 
 	
 	
