@@ -2,6 +2,7 @@ package com.trabalho.acheimoveis.actionbar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -21,7 +22,7 @@ import com.trabalho.acheimoveis.view.FragmentMap;
 public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
 	// private final TextChangeListener keyListener;
-	private final Activity activity;
+	private final FragmentActivity activity;
 	// protected FragmentSearchResults fragSearchResults;
 	// private final boolean firstSearch;
 	// public static ActionBarListClickListener instance;
@@ -30,7 +31,7 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 	private String searchString;
 	private final FragmentManager manager;
 
-	public ActionBarListClickListener(Activity activity, GoogleMap map, FragmentManager fragman) {
+	public ActionBarListClickListener(FragmentActivity activity, GoogleMap map, FragmentManager fragman) {
 
 		this.activity = activity;
 		this.context = activity.getBaseContext();
@@ -118,6 +119,7 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
 	@Override
 	public void goMapClicked() {
+		
 		FragmentMap fragmap = new FragmentMap();
 		
 		FragmentTransaction frmT = this.manager.beginTransaction();

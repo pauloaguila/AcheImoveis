@@ -1,13 +1,26 @@
 package com.trabalho.acheimoveis.view;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -18,20 +31,6 @@ import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
 import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
 import com.trabalho.acheimoveis.actionbar.InitialWithSearchStateActionBar;
 import com.trabalho.acheimoveis.actionbar.StateActionBar;
-import com.trabalho.acheimoveis.view.MapActivity.CustomInfoWindowAdapter;
-
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class FragmentMap extends Fragment implements OnMarkerClickListener, OnInfoWindowClickListener, OnMarkerDragListener{
 
@@ -42,25 +41,35 @@ public class FragmentMap extends Fragment implements OnMarkerClickListener, OnIn
 
     private Marker mManaus;
     private TextView mTopText;
+    private View fragmentView;
+   
    
 	private ActionBarListClickListener clickListener;
-
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setUpMapIfNeeded();
+        
     }
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
     		Bundle savedInstanceState) {
     	
-    	View myFragmentView = inflater.inflate(R.layout.map, container, false);
+    	fragmentView = inflater.inflate(R.layout.map, container, false);
     	 
-    	  return myFragmentView;
+    	
+    	  return fragmentView;
     	
 //    	return super.onCreateView(inflater, container, savedInstanceState);
+    }
+    
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+    	super.onActivityCreated(savedInstanceState);
+    	
+    	setUpMapIfNeeded();
     }
     
     public void changeActionBar(int op) {

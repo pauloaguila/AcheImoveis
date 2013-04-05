@@ -9,6 +9,7 @@ import com.trabalho.acheimoveis.R;
 import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
 import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
 import com.trabalho.acheimoveis.actionbar.InitialStateMenu;
+import com.trabalho.acheimoveis.actionbar.InitialWithSearchStateActionBar;
 import com.trabalho.acheimoveis.actionbar.StateActionBar;
 
 public class MenuActivity extends FragmentActivity {
@@ -32,5 +33,20 @@ public class MenuActivity extends FragmentActivity {
         	AguilaActionBar.instanceActionBar.setStateActionBar(state);
 
     }
+    
+    
+    @Override
+    public void onBackPressed() {
+    	
+    	if(AguilaActionBar.instanceActionBar.getStateActionBar() instanceof InitialWithSearchStateActionBar){
+    		super.onBackPressed();
+    		
+    	}else{
+    		changeActionBar();
+    	}
+    	
+    	
+    }
+
 
 }
