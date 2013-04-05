@@ -1,7 +1,6 @@
 package com.trabalho.acheimoveis.actionbar;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,9 +12,7 @@ import android.widget.TextView;
 import com.google.android.gms.maps.GoogleMap;
 import com.trabalho.acheimoveis.R;
 import com.trabalho.acheimoveis.interfaces.ActionsButtonsActionBar;
-import com.trabalho.acheimoveis.utils.AlertDialogManager;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
-import com.trabalho.acheimoveis.utils.MemoryHelper;
 import com.trabalho.acheimoveis.utils.ToastHandler;
 
 public class ActionBarListClickListener implements ActionsButtonsActionBar {
@@ -39,7 +36,7 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 	}
 
 	public void loadMapLocation(String address) {
-		new GeocoderTask(this.map).execute(address);
+		new GeocoderTask(activity, this.map).execute(address);
 		clearshowKeyboard(0);
 	}
 
@@ -79,16 +76,14 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 		editText.clearFocus();
 		editText.requestFocus();
 
-		// Get search string from search field
-		searchString = AguilaActionBar.instanceActionBar.getEditTextContent();
-
 		editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId,
 					KeyEvent event) {
-				if (actionId == EditorInfo.IME_ACTION_SEARCH
-						&& searchString.length() != 0) {
-					String address = mountAddress(searchString + ",manaus");
+				if ( AguilaActionBar.instanceActionBar
+								.getEditTextContent().length() != 0) {
+					String address = mountAddress(AguilaActionBar.instanceActionBar
+							.getEditTextContent());
 
 					loadMapLocation(address);
 

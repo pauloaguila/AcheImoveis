@@ -13,5 +13,8 @@
     <!-- Map Screen Strings -->
     <string name="map_not_ready">Mapa não está disponível ainda</string>
     <string name="map_dialog_empty_search_field">Campo vazio.\nPor favor entre com uma palavra a ser buscada.</string>
+    <string name="doing_search">Procurando localidade...</string>
+    <string name="place_not_found">Localidade não encontrada.\nPor favor tente novamente.</string>
+    
 
 </resources>
