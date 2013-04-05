@@ -26,11 +26,10 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 	private final GoogleMap map;
 	private String searchString;
 
-	public ActionBarListClickListener(Activity activity, Context context,
-			GoogleMap map) {
+	public ActionBarListClickListener(Activity activity, GoogleMap map) {
 
 		this.activity = activity;
-		this.context = context;
+		this.context = activity.getBaseContext();
 		this.map = map;
 
 	}

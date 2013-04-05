@@ -1,24 +1,13 @@
 package com.trabalho.acheimoveis.view;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -29,10 +18,23 @@ import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
 import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
 import com.trabalho.acheimoveis.actionbar.InitialWithSearchStateActionBar;
 import com.trabalho.acheimoveis.actionbar.StateActionBar;
+import com.trabalho.acheimoveis.view.MapActivity.CustomInfoWindowAdapter;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MapActivity extends FragmentActivity implements OnMarkerClickListener, OnInfoWindowClickListener, OnMarkerDragListener{
-	
+public class FragmentMap extends Fragment implements OnMarkerClickListener, OnInfoWindowClickListener, OnMarkerDragListener{
+
 	private static final LatLng MANAUS = new LatLng(-3.1064093,-60.0264297);
 	
     private GoogleMap mMap;
@@ -40,16 +42,25 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 
     private Marker mManaus;
     private TextView mTopText;
-
+   
 	private ActionBarListClickListener clickListener;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.map);
 
         setUpMapIfNeeded();
+    }
+    
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    		Bundle savedInstanceState) {
+    	
+    	View myFragmentView = inflater.inflate(R.layout.map, container, false);
+    	 
+    	  return myFragmentView;
+    	
+//    	return super.onCreateView(inflater, container, savedInstanceState);
     }
     
     public void changeActionBar(int op) {
@@ -74,7 +85,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+            mMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
@@ -108,7 +119,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 			      .build();
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));    
 
-        clickListener = new ActionBarListClickListener(this, mMap);
+        clickListener = new ActionBarListClickListener(getActivity(),mMap);
         changeActionBar(0);
         
     }
@@ -154,7 +165,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 
 	@Override
 	public void onInfoWindowClick(Marker marker) {
-		Toast.makeText(getBaseContext(), "Click Info Window", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity(), "Click Info Window", Toast.LENGTH_SHORT).show();
 		
 	}
 
@@ -172,7 +183,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
         private final View mWindow;
 
         CustomInfoWindowAdapter() {
-            mWindow = getLayoutInflater().inflate(R.layout.custom_info_window, null);
+            mWindow = getActivity().getLayoutInflater().inflate(R.layout.custom_info_window, null);
         }
 
         @Override
@@ -219,17 +230,5 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 		}
     }
     
-    @Override
-    public void onBackPressed() {
-    	
-    	if(AguilaActionBar.instanceActionBar.getStateActionBar() instanceof InitialWithSearchStateActionBar){
-    		super.onBackPressed();
-    		
-    	}else{
-    		changeActionBar(0);
-    	}
-    	
-    	
-    }
-
+	
 }
