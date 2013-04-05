@@ -50,7 +50,7 @@ public class SplashActivity extends Activity implements Runnable {
 		} else {
 
 			// After database copy, call the MenuActivity class
-			Intent menu = new Intent(SplashActivity.this, MapActivity.class);
+			Intent menu = new Intent(SplashActivity.this, MenuActivity.class);
 			SplashActivity.this.startActivity(menu);
 			finish();
 		}

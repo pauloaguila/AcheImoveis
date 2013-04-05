@@ -1,12 +1,15 @@
 package com.trabalho.acheimoveis.view;
 
-import com.trabalho.acheimoveis.R;
-import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
-
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Window;
+
+import com.trabalho.acheimoveis.R;
+import com.trabalho.acheimoveis.actionbar.ActionBarListClickListener;
+import com.trabalho.acheimoveis.actionbar.AguilaActionBar;
+import com.trabalho.acheimoveis.actionbar.InitialStateMenu;
+import com.trabalho.acheimoveis.actionbar.StateActionBar;
 
 public class MenuActivity extends FragmentActivity {
 	
@@ -19,8 +22,15 @@ public class MenuActivity extends FragmentActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.main);
+        
+        clickListener = new ActionBarListClickListener(this, null, getSupportFragmentManager());
+        changeActionBar();
 	}
 	
-	
+    public void changeActionBar() {
+        	StateActionBar state = new InitialStateMenu(clickListener);
+        	AguilaActionBar.instanceActionBar.setStateActionBar(state);
+
+    }
 
 }

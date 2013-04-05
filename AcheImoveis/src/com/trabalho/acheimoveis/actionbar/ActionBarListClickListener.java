@@ -2,6 +2,8 @@ package com.trabalho.acheimoveis.actionbar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -14,6 +16,7 @@ import com.trabalho.acheimoveis.R;
 import com.trabalho.acheimoveis.interfaces.ActionsButtonsActionBar;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
 import com.trabalho.acheimoveis.utils.ToastHandler;
+import com.trabalho.acheimoveis.view.FragmentMap;
 
 public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
@@ -25,12 +28,14 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 	private final Context context;
 	private final GoogleMap map;
 	private String searchString;
+	private final FragmentManager manager;
 
-	public ActionBarListClickListener(Activity activity, GoogleMap map) {
+	public ActionBarListClickListener(Activity activity, GoogleMap map, FragmentManager fragman) {
 
 		this.activity = activity;
 		this.context = activity.getBaseContext();
 		this.map = map;
+		this.manager = fragman;
 
 	}
 
@@ -113,7 +118,12 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
 	@Override
 	public void goMapClicked() {
-		// TODO Auto-generated method stub
+		FragmentMap fragmap = new FragmentMap();
+		
+		FragmentTransaction frmT = this.manager.beginTransaction();
+		frmT.replace(R.id.frame, fragmap, "FragMap");
+		frmT.addToBackStack("FragMap");
+		frmT.commit();
 
 	}
 

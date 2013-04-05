@@ -119,7 +119,7 @@ public class FragmentMap extends Fragment implements OnMarkerClickListener, OnIn
 			      .build();
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));    
 
-        clickListener = new ActionBarListClickListener(getActivity(),mMap);
+        clickListener = new ActionBarListClickListener(getActivity(),mMap, getFragmentManager());
         changeActionBar(0);
         
     }

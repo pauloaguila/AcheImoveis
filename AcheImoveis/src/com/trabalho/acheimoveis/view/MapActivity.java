@@ -52,22 +52,9 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
         setUpMapIfNeeded();
     }
     
-    public void changeActionBar(int op) {
-        if (op == 0) {
-        	
+    public void changeActionBar() {	
         	StateActionBar state = new InitialWithSearchStateActionBar(clickListener);
-        	AguilaActionBar.instanceActionBar.setStateActionBar(state);
-        	
-
-
-//            AguilaActionBar.instanceActionBar.setHomeLogo(
-//                R.drawable.ic_launcher, clickListener,
-//                Constants.HOME_IMG_BUTTON);
-//            AguilaActionBar.instanceActionBar.addActionIcon(
-//                R.drawable.actionbar_pesquisar, true, View.VISIBLE,
-//                clickListener, Constants.SEARCH_IMG_BUTTON);
-            
-        }
+        	AguilaActionBar.instanceActionBar.setStateActionBar(state);    
     }
     
     private void setUpMapIfNeeded() {
@@ -108,8 +95,8 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
 			      .build();
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));    
 
-        clickListener = new ActionBarListClickListener(this, mMap);
-        changeActionBar(0);
+        clickListener = new ActionBarListClickListener(this, mMap, getSupportFragmentManager());
+        changeActionBar();
         
     }
     
@@ -226,7 +213,7 @@ public class MapActivity extends FragmentActivity implements OnMarkerClickListen
     		super.onBackPressed();
     		
     	}else{
-    		changeActionBar(0);
+    		changeActionBar();
     	}
     	
     	
