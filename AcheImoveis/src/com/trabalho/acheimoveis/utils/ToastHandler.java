@@ -12,18 +12,18 @@ import com.trabalho.acheimoveis.controller.ApplicationControllerWrapper;
 public class ToastHandler {
 
 	private final Activity activity;
-	private final int id;
 	private final Typeface fontStyle;
+	private String text;
 
 	// Variable singleton
 	private static ApplicationControllerWrapper application;
 
-	public ToastHandler(Activity activity, int toastId) {
+	public ToastHandler(Activity activity, String text) {
 
 		this.activity = activity;
 
 		// Sets the Toast windows parameters as id and duration
-		this.id = toastId;
+		this.text = text;
 		this.fontStyle = Typeface.createFromAsset(activity.getAssets(),
 				"fonts/robotoregular.ttf");
 
@@ -34,34 +34,23 @@ public class ToastHandler {
 		showToast();
 	}
 
+	// Show Toast
 	public void showToast() {
 
 		Toast toast = new Toast(activity);
 
-		switch (id) {
+		TextView textviewClipboard = new TextView(activity);
+		textviewClipboard.setText(text);
+		textviewClipboard.setTypeface(fontStyle);
+		textviewClipboard.setPadding(10, 10, 10, 10);
+		textviewClipboard.setGravity(Gravity.CENTER);
 
-		case 1:
+		textviewClipboard.setBackgroundColor(Color.BLACK);
+		textviewClipboard.setTextColor(Color.WHITE);
 
-			// Show Toast
-
-			TextView textviewClipboard = new TextView(activity);
-			textviewClipboard.setText("aaaa");// activity.getString(R.string.contextual_copy_action_result_text));
-			textviewClipboard.setTypeface(fontStyle);
-			textviewClipboard.setPadding(10, 10, 10, 10);
-			textviewClipboard.setGravity(Gravity.CENTER);
-
-			// textviewClipboard.setBackgroundDrawable(activity.getResources().getDrawable(R.color.blackActionBarDefaultTheme));
-			textviewClipboard.setTextColor(Color.WHITE);
-
-			toast.setView(textviewClipboard);
-			toast.setDuration(Toast.LENGTH_SHORT);
-			toast.show();
-			break;
-
-		default:
-			break;
-
-		}
+		toast.setView(textviewClipboard);
+		toast.setDuration(Toast.LENGTH_SHORT);
+		toast.show();
 
 	}
 

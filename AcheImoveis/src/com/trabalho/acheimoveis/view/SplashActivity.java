@@ -45,10 +45,7 @@ public class SplashActivity extends Activity implements Runnable {
 					MemoryHelper.getTotalMemoryAvailable() / 1000000,
 					MemoryHelper.getTotalMemoryNeeded() / 1000000);
 			AlertDialogManager.showSplahErrorDialog(this, dialogText,
-					getString(R.string.splash_dialog_button));
-
-			Log.i("splash", "MOBIBLE: splash"
-					+ "Memory full, could not copy database");
+					getString(R.string.ok_button));
 
 		} else {
 

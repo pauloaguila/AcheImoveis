@@ -1,6 +1,7 @@
 package com.trabalho.acheimoveis.actionbar;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.view.View;
@@ -10,8 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.trabalho.acheimoveis.R;
 import com.trabalho.acheimoveis.interfaces.ActionsButtonsActionBar;
+import com.trabalho.acheimoveis.utils.AlertDialogManager;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
+import com.trabalho.acheimoveis.utils.MemoryHelper;
+import com.trabalho.acheimoveis.utils.ToastHandler;
 
 public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
@@ -87,6 +92,12 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
 					loadMapLocation(address);
 
+				} else {
+					if (searchString.length() == 0) {
+						new ToastHandler(
+								activity,
+								activity.getString(R.string.map_dialog_empty_search_field));
+					}
 				}
 				return true;
 			}

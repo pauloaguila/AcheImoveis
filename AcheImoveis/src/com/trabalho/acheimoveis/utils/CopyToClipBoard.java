@@ -18,7 +18,7 @@ public class CopyToClipBoard {
 		clipboard.setText(mountMensagem());
 
 		// Call Toast after copy is succeded
-		new ToastHandler(activity, 1);
+		new ToastHandler(activity, "");
 
 	}
 
