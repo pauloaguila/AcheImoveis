@@ -10,10 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.trabalho.acheimoveis.interfaces.ActionsBunttosActionBar;
+import com.trabalho.acheimoveis.interfaces.ActionsButtonsActionBar;
 import com.trabalho.acheimoveis.utils.GeocoderTask;
 
-public class ActionBarListClickListener implements ActionsBunttosActionBar {
+public class ActionBarListClickListener implements ActionsButtonsActionBar {
 
 	// private final TextChangeListener keyListener;
 	private final Activity activity;
