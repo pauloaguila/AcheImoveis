@@ -22,16 +22,18 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 	// public static ActionBarListClickListener instance;
 	private final Context context;
 	private final GoogleMap map;
+	private String searchString;
 
-	public ActionBarListClickListener(Activity activity, Context context, GoogleMap map) {
+	public ActionBarListClickListener(Activity activity, Context context,
+			GoogleMap map) {
 
 		this.activity = activity;
 		this.context = context;
 		this.map = map;
 
 	}
-	
-	public void loadMapLocation(String address){
+
+	public void loadMapLocation(String address) {
 		new GeocoderTask(this.map).execute(address);
 		clearshowKeyboard(0);
 	}
@@ -55,66 +57,58 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 		}
 	}
 
-	
-	public String mountAddress(String address){
+	public String mountAddress(String address) {
 		String addr = address.replace(" ", "+");
 		return addr;
 	}
-	
-	
 
 	@Override
 	public void searchClicked() {
-		
-    	StateActionBar state = new MakeSearchStateActionBar(this);
-    	AguilaActionBar.instanceActionBar.setStateActionBar(state);
-		
+
+		StateActionBar state = new MakeSearchStateActionBar(this);
+		AguilaActionBar.instanceActionBar.setStateActionBar(state);
 
 		clearshowKeyboard(1);
-		
-		EditText editText = AguilaActionBar.instanceActionBar.getEditText();
 
-        editText.clearFocus();
-        
-        editText.requestFocus();
-        
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId,
-                KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH
-                    && AguilaActionBar.instanceActionBar
-                        .getEditTextContent().length() != 0) {
-                	String address = mountAddress(AguilaActionBar.instanceActionBar.getEditTextContent() + ",manaus");
-                	
-                	loadMapLocation(address);
-                	
-                    
-                    return true;
-                }
-                return true;
-            }
-        });
-		
-		
+		EditText editText = AguilaActionBar.instanceActionBar.getEditText();
+		editText.clearFocus();
+		editText.requestFocus();
+
+		// Get search string from search field
+		searchString = AguilaActionBar.instanceActionBar.getEditTextContent();
+
+		editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId,
+					KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_SEARCH
+						&& searchString.length() != 0) {
+					String address = mountAddress(searchString + ",manaus");
+
+					loadMapLocation(address);
+
+				}
+				return true;
+			}
+		});
+
 	}
 
 	@Override
 	public void homeLogoClicked() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void makeSearchClicked() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void cleanSearchClicked() {
 		AguilaActionBar.instanceActionBar.setEditText("");
 
-		
 	}
 }
