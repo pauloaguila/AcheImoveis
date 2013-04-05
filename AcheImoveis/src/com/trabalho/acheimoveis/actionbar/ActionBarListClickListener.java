@@ -83,7 +83,7 @@ public class ActionBarListClickListener implements ActionsButtonsActionBar {
 				if ( AguilaActionBar.instanceActionBar
 								.getEditTextContent().length() != 0) {
 					String address = mountAddress(AguilaActionBar.instanceActionBar
-							.getEditTextContent());
+							.getEditTextContent() + "manaus");
 
 					loadMapLocation(address);
 
